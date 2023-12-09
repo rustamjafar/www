@@ -1,9 +1,11 @@
-https://ar.rustamjafar.com (تحت التشيد)
+https://www.rustamjafar.com/ar (تحت التشيد)
 
-<https://en.rustamjafar.com>
+<https://www.rustamjafar.com/en>
 
-https://he.rustamjafar.com (בתהליך בנייה)
+https://www.rustamjafar.com/he (בתהליך בנייה)
 
-https://ru.rustamjafar.com (в разработке)
+https://www.rustamjafar.com/ru (в разработке)
 
-<https://construction.rustamjafar.com>
+<https://construction.rustamjafar.com/ru>
+
+<https://cv.rustamjafar.com/en>

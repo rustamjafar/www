@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# author: m7tkr
+# date: 20231019172043
+# purpose: create new note based on last notefolder
+# useage: `./<path-to-script>/makenote` from root folder
+
+# get script's folder
+SCRIPT_DIR=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+ROOT_DIR=${SCRIPT_DIR%/scripts}
+
+# get last notefolder based on its namenumber
+last_note=$( find ${ROOT_DIR}/notes -mindepth 1 -type d | sort -Vr | sed -n '1p' )
+
+# get notefolder number
+last_note=${last_note##*/}
+
+# calc new_note folder number
+new_note=$(( last_note + 1 ))
+
+# makedir, touch note, vim into it
+mkdir ${ROOT_DIR}/notes/${LANG}/${new_note}
+touch ${ROOT_DIR}/notes/${LANG}/${new_note}/README.md
+vim ${ROOT_DIR}/notes/${LANG}/${new_note}/README.md

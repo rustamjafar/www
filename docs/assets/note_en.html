@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="${if(lang)}${lang}${else}en-US${endif}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    ${if(title)}
+        <title>${title}</title>
+    ${else}
+        <title>no_title</title>
+    ${endif}
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+    <div class="basmala">
+      <p>in the name of god, the most beneficent, the most merciful</p>
+      <hr>
+    </div>
+
+    <div class="header">
+      <span>
+        <a href="/pages/en/index.html">main</a>
+      </span>
+    </div>
+
+    <div class="content">
+        ${body}
+    </div>
+
+    <div class="footer">
+      <hr>
+      <p>
+        <a href="mailto:rst.jafar@gmail.com">rst.jafar@gmail.com</a>
+      </p>
+    </div>
+</body>
+</html>
+

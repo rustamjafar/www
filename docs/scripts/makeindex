@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+
+SCRIPT_DIR=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+ROOT_DIR=${SCRIPT_DIR%/scripts*}
+
+if [[ -z "$1" ]]; then
+  echo 'mbuild: usage: ./makeindex <lang ar | en | he | ru>'
+fi
+
+if [[ "$1" = lang ]]; then
+  if [[ -z "$1" ]]; then
+    echo 'mbuild: usage: mbuild <script | lang>'
+  fi
+
+  LANG=$2
+
+  declare -a languages
+  declare -x stringlang
+
+  # create languages array and string
+  while IFS= read -r language; do
+    language=${language##*/}
+    languages+=(language)
+    stringlang+="${language}, "
+  done < <( find $ROOT_DIR/notes -mindepth 1 -maxdepth 1 -type d | sort)
+
+   # simple lang checks                                               
+   case "$LANG" in
+    ??  ) LANG="${LANG,,}" ;;
+    ## remove final comma from $stringlang
+    ""  ) echo "mbuild: usage: mbuild lang <ar | en | he | ru>"
+          echo please, choose from: ${stringlang%,*}
+          exit 1 ;;
+    *   ) echo "mbuild: usage: mbuild lang <ar | en | he | ru>"
+          echo choose from: ${stringlang%,*}
+          exit 1 ;;
+  esac
+
+  # check if choosen lang is in available languages
+  if [[ -z `grep ${LANG} <<< $stringlang` ]]; then
+    echo "mbuild: lang not found"
+    echo "available: ${stringlang%,*}"
+    exit 1
+  fi
+
+  INDEX_LOCATION=$ROOT_DIR/notes/$LANG/index.md
+  SEARCH_FOLDER=$ROOT_DIR/notes/$LANG/
+fi
+
+# clean main page for new notes to be inserted
+echo > "$INDEX_LOCATION"
+
+while IFS= read -r note; do
+
+  # get note's first line which contains date
+  date=$( sed -n '1p' < "$note" )
+
+  # get note's third line which contains name
+  name=$( sed -n '3p' < "$note" )
+
+  dir_md=${note%/README.md}
+  OUTPUT_DIR=${dir_md/notes/pages}
+
+  # set the output html file for each note
+  link=${OUTPUT_DIR#*docs}
+  link="$link/${date}.html"
+
+  echo $link
+
+  # creating clickable links on main page (index.md)
+  notelink="[${date}: ${name#\# }](${link})"
+  printf '%s\n\n' "$notelink" >> "$INDEX_LOCATION"
+
+done < <( find "$SEARCH_FOLDER" -mindepth 2 \
+            -iname '*.md' | sort -Vr )
+
+

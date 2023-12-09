@@ -59,10 +59,10 @@ while IFS= read -r note; do
   name=$( sed -n '3p' < "$note" )
 
   dir_md=${note%/README.md}
-  OUTPUT_DIR=${dir_md/notes/pages}
+  OUTPUT_DIR=${dir_md/notes/}
 
   # set the output html file for each note
-  link=${OUTPUT_DIR#*docs}
+  link=${OUTPUT_DIR#*docs/}
   link="$link/${date}.html"
 
   echo $link

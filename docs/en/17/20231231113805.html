@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <title>20231231113805</title>
+        <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+    <div class="basmala">
+      <p>in the name of god, the most beneficent, the most merciful</p>
+      <hr>
+    </div>
+
+    <div class="header">
+      <span>
+        <a href="/en/index.html">main</a>
+      </span>
+    </div>
+
+    <div class="content">
+        <p>20231231113805</p>
+        <h1 id="nginx-local-server-static-webpage">nginx: local server static webpage</h1>
+        <ul>
+        <li><a href="#mime-types">mime types</a></li>
+        <li><a href="#403-forbidden">403 forbidden</a></li>
+        </ul>
+        <p>below are some problems that occured while i was setting up nginx local server for testing my website.</p>
+        <h2 id="mime-types">mime types</h2>
+        <p>when browser throws out <em>mime</em> type error, try adding following to nginx config file <code>/etc/nginx/nginx.conf</code>:</p>
+        <pre><code>http {
+          include /etc/nginx/mime.types;
+          include /etc/nginx/conf.d/*.conf;
+        }</code></pre>
+        <p>don’t forget reloading w/:</p>
+        <p><code>sudo nginx -s reload</code></p>
+        <h2 id="forbidden">403 forbidden</h2>
+        <p>first, read about this error here:</p>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403" class="uri">https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403</a></p>
+        <p>then, set <code>user</code> in your <code>/etc/nginx/nginx.conf</code> file as:</p>
+        <p><code>user root;</code></p>
+        <p>in my case this small change has fixed the problem</p>
+    </div>
+
+    <div class="footer">
+      <hr>
+      <p>
+        <a href="mailto:rst.jafar@gmail.com">rst.jafar@gmail.com</a>
+      </p>
+    </div>
+</body>
+</html>

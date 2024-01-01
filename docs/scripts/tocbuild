@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+
+# author: m7tkr
+# date: 20231021084004
+# usage: tocbuild <file.md>
+# purpose: creates table of contents for markdown files
+
+shopt -s extglob
+
+# err msg
+if [[ "$1" == "" ]]; then
+  echo "error: file is not specifie"
+  echo "usage: $0 <file.md>"
+  echo "exit status: 1"
+  exit 1
+fi
+
+for file in $*; do
+while IFS= read -r toc; do
+
+  grepped=$( grep -n '^TOC' "$file" | head -n 1 )
+  startline="$(cut -d ':' -f 1 <<< $grepped)" # num. of line w/ toc
+  heading_depth="$(cut -d ' ' -f 2 <<< $grepped)"
+
+  delim=$( tail -n +"$startline" "$file" | grep -E '^#{1,6} ' | head -n 1 )
+  delim=${delim%% *}
+  delim=${#delim}
+
+  line_to_del=$(cut -d ':' -f 1 <<< $grepped)  # delete line w/ toc
+
+  while IFS= read -r line; do
+
+    # if hashtag greater than specified depth
+    hashtag=${line%% *}
+    if [[ "${#hashtag}" -gt ${heading_depth} ]]; then
+      continue
+    fi
+
+    # if hashtag less than specified delim
+    if [[ "${#hashtag}" -lt ${delim} ]]; then
+      break
+    fi
+
+    name=${line#* }
+    name=\[${name}\]    # print name in `[name]` format
+
+    anchor=${line#* }
+    anchor="${anchor,,}"       # all to lowercase
+    anchor="${anchor// /-}"    # turn spaces into dashes
+    anchor=${anchor//[^[:alnum:]-_.:]/}  # remove any except 
+    anchor="(#${anchor})"
+
+    link="* ${name}${anchor}"
+
+    spaces=$(( ${#hashtag} - delim ))
+
+    # heading level 1
+    if [[ $spaces -eq 0 ]]; then
+      sed -i "$startline a $link" "$file"
+    fi
+
+    # heading level 2
+    if [[ $spaces -eq 1 ]]; then
+      sed -i "$startline a\  $link" "$file"
+    fi
+
+    # heading level 3
+    if [[ $spaces -eq 2 ]]; then
+      sed -i "$startline a\    $link" "$file"
+    fi
+
+    # heading level 4
+    if [[ $spaces -eq 3 ]]; then
+      sed -i "$startline a\      $link" "$file"
+    fi
+
+    # heading level 5
+    if [[ $spaces -eq 4 ]]; then
+      sed -i "$startline a\        $link" "$file"
+    fi
+
+    # heading level 6
+    if [[ $spaces -eq 5 ]]; then
+      sed -i "$startline a\          $link" "$file"
+    fi
+     
+    # counts line to append to, this is for `sed` utility
+    startline=$(( startline+1 ))
+
+  done < <( tail -n +"$startline" "$file" | grep -E '^#{1,6} ' )
+  sed -i "$line_to_del d" "$file"   # delete line w/ [TOC]
+
+done < <( grep -n '^TOC' "$file" )
+done

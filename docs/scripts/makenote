@@ -3,14 +3,23 @@
 # author: m7tkr
 # date: 20231019172043
 # purpose: create new note based on last notefolder
-# useage: `./<path-to-script>/makenote` from root folder
+# usage: `./<path-to-script>/makenote` from root folder
+
+if [[ -z $1 ]]; then
+  echo "please specify language"
+  exit 0
+fi
+
+# set notes folder language
+LANG=$1
 
 # get script's folder
 SCRIPT_DIR=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 ROOT_DIR=${SCRIPT_DIR%/scripts}
+NOTE_DIR=$ROOT_DIR/notes/$LANG
 
 # get last notefolder based on its namenumber
-last_note=$( find ${ROOT_DIR}/notes -mindepth 1 -type d | sort -Vr | sed -n '1p' )
+last_note=$( find $NOTE_DIR -mindepth 1 -type d | sort -Vr | sed -n '1p' )
 
 # get notefolder number
 last_note=${last_note##*/}
@@ -19,6 +28,6 @@ last_note=${last_note##*/}
 new_note=$(( last_note + 1 ))
 
 # makedir, touch note, vim into it
-mkdir ${ROOT_DIR}/notes/${LANG}/${new_note}
-touch ${ROOT_DIR}/notes/${LANG}/${new_note}/README.md
-vim ${ROOT_DIR}/notes/${LANG}/${new_note}/README.md
+mkdir $NOTE_DIR/${new_note}
+touch $NOTE_DIR/${new_note}/README.md
+vim $NOTE_DIR/${new_note}/README.md

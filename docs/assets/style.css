@@ -24,10 +24,6 @@ body.ar {
   padding-top: 0;
 }
 
-.basmala p {
-  line-height: 1em;
-}
-
 .header, .footer {
   display: flex;
   flex-flow: row wrap;

@@ -2,10 +2,4 @@
 
 [https://www.rustamjafar.com/en](./en)
 
-https://www.rustamjafar.com/he (בתהליך בנייה)
-
 [https://www.rustamjafar.com/ru](./ru)
-
-https://construction.rustamjafar.com/ru
-
-https://cv.rustamjafar.com/en

@@ -27,10 +27,7 @@ case "$1" in
   root  ) SEARCH_FOLDER="$ROOT_DIR -maxdepth 1" 
           TEMPLATE="$ROOT_DIR/assets/root.html" ;;
   mlang ) LANG=$2 
-          source ${SCRIPT_DIR}/mlang ${LANG}
-          case $? in
-            1 ) exit 1;;
-          esac
+          source ${SCRIPT_DIR}/mlang ${LANG} || exit 1
           TEMPLATE="$ROOT_DIR/assets/note_${LANG}.html" ;;
   *     ) echo 'mbuild: usage: mbuild <root | mlang>'; exit 1 ;;
 esac

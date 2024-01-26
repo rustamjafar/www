@@ -5,11 +5,6 @@
 # purpose: create new note based on last notefolder
 # usage: `./<path-to-script>/makenote` from root folder
 
-if [[ -z $1 ]]; then
-  echo "please specify language"
-  exit 0
-fi
-
 # set notes folder language
 LANG=$1
 
@@ -17,6 +12,8 @@ LANG=$1
 SCRIPT_DIR=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 ROOT_DIR=${SCRIPT_DIR%/scripts}
 NOTE_DIR=$ROOT_DIR/notes/$LANG
+
+source ${SCRIPT_DIR}/mlang ${LANG} || exit 1
 
 # get last notefolder based on its namenumber
 last_note=$( find $NOTE_DIR -mindepth 1 -type d | sort -Vr | sed -n '1p' )

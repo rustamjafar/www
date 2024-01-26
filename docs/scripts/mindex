@@ -5,11 +5,7 @@ ROOT_DIR=${SCRIPT_DIR%/scripts*}
 
 # set language from positional parameters of makeindex script
 LANG=$1
-source ${SCRIPT_DIR}/mlang "$LANG"
-
-case $? in
-  1  ) exit 1 ;;
-esac
+source ${SCRIPT_DIR}/mlang "$LANG" || exit 1
 
 # clean main page for new notes to be inserted
 echo > "$INDEX_LOCATION"
@@ -37,5 +33,3 @@ while IFS= read -r note; do
 
 done < <( find "$SEARCH_FOLDER" -mindepth 2 \
             -iname '*.md' | sort -Vr )
-
-

@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+SCRIPT_DIR=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+ROOT_DIR=${SCRIPT_DIR%/scripts*}
+
+if [[ -z "$1" ]]; then
+  echo 'mlang: usage: mlang <LANG>'
+  return 1
+fi
+
+LANG=$1
+
+# clear stringlang array from cluttering
+unset stringlang
+declare -x stringlang
+
+declare -a languages
+
+# create languages array and string
+while IFS= read -r language; do
+  language=${language##*/}
+  languages+=(language)
+  stringlang+="${language}, "
+done < <( find $ROOT_DIR/notes -mindepth 1 -maxdepth 1 -type d | sort)
+
+# simple lang checks                                               
+case "$LANG" in
+  ??  ) LANG="${LANG,,}" ;;
+  ## remove final comma from $stringlang
+  ""  ) echo "mlang: usage: mlang <LANG>"
+        echo please, choose from: ${stringlang%,*}
+        return 1 ;;
+  *   ) echo "mlang: usage: mlang <LANG>"
+        echo choose from: ${stringlang%,*}
+        return 1 ;;
+esac
+
+# check if choosen lang is in available languages
+if [[ -z `grep ${LANG} <<< $stringlang` ]]; then
+  echo "mbuild: lang not found"
+  echo "available: ${stringlang%,*}"
+  return 1
+fi
+
+export INDEX_LOCATION=$ROOT_DIR/notes/$LANG/index.md
+export SEARCH_FOLDER=$ROOT_DIR/notes/$LANG/
+
+return 0

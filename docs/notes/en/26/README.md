@@ -3,7 +3,7 @@
 # mirror's edge: the conglomerate
 
 i found it interesting the openning speech of protagonist in mirror's edge
-video game. below is the part transcript:
+video game. below is the partial transcript:
 
 > once, the city used to pulse with energy. dirty and dangerous, but alive
 > and wonderful. now it's something else. the changes came slowly at first.

@@ -3,11 +3,12 @@
 SCRIPT_DIR=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 ROOT_DIR=${SCRIPT_DIR%/scripts*}
 
-# set language from positional parameters of makeindex script
+# set language from positional parameters of mindex script
 LANG=$1
 source ${SCRIPT_DIR}/mlang "$LANG" || exit 1
 
 # clean main page for new notes to be inserted
+# inherited index_location variable from mlang script above
 echo > "$INDEX_LOCATION"
 
 while IFS= read -r note; do
@@ -31,5 +32,6 @@ while IFS= read -r note; do
   notelink="[${date}: ${name#\# }](${link})"
   printf '%s\n\n' "$notelink" >> "$INDEX_LOCATION"
 
+# got the search_folder variable from mlang script above
 done < <( find "$SEARCH_FOLDER" -mindepth 2 \
             -iname '*.md' | sort -Vr )

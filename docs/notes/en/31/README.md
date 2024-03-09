@@ -4,6 +4,8 @@
 
 small reminder for myself about running shell scripts
 
+## current shell
+
 `. <script>`
 
 this one above runs script in current shell, thus:
@@ -11,6 +13,8 @@ this one above runs script in current shell, thus:
 * all the local variables of current shell are available to `<script>`.
 the `.` is interchangable w/ `source`.
 * exported variables from `<script>` are also available to current shell.
+
+## subshell
 
 `./<script>`
 

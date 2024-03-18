@@ -1,0 +1,157 @@
+% !TEX TS-program = xelatex
+
+% thanks to https://latex-tutorial.com/cv-latex-guide/
+\documentclass[12pt,a4paper]{article}
+
+%\usepackage[utf8]{inputenc} % inputenc ignored w/ ut8-based engines (e.g., xelatex)
+\usepackage[T2A,T1]{fontenc} % req to support cyr encoding
+\usepackage[english]{babel}
+\usepackage{fontspec}
+
+% empty the headers, footers, pagenumbers
+\pagestyle{empty}
+
+% define margins
+\usepackage{geometry}
+\geometry{top=15mm, left=10mm, right=10mm, bottom=5mm}
+
+% font settings
+% \renewcommand*\rmdefault{iwona}
+% \setmainfont{Noto Serif} % w/ xelatex parser
+
+\usepackage{sectsty}
+\sectionfont{
+    \large
+    \sectionrule{0pt}{0pt}{-10pt}{1pt} % thin rule: 5 - below, 1 - thickness
+}
+
+% horizontal space
+\newlength{\spacebox}
+\settowidth{\spacebox}{1234567890}
+
+% vertical space
+\newcommand{\sepspace}{\vspace*{1em}}
+
+%%% MACROs %%%
+
+% personal name
+\newcommand{\name}[1]{
+    \Huge
+    % \fontfamily{phv}\selectfont
+    \begin{center} \textbf{#1} \par \end{center}
+    \normalsize % \normalfont
+}
+
+% personal contacts/details
+\newcommand{\info}[2]{
+    \noindent\hangindent=2em\hangafter=0
+    \parbox{1.5\spacebox}{
+        \textsl{#1}
+    }
+    #2 \par
+}
+
+% skills
+\newcommand{\skill}[2]{
+    \noindent\hangindent=2em\hangafter=0
+    % create a box to align two pieces of text
+    \parbox{3\spacebox}{
+    \textsc{#1}}
+    #2 \par
+}
+
+% lan
+\newcommand{\lan}[2]{
+    \noindent\hangindent=2em\hangafter=0
+    \parbox{1.5\spacebox}{
+    \textbf{#1}}
+    #2 \par
+}
+
+% education
+\newcommand{\education}[4]{
+    \noindent\textbf{#1} % name of studies
+    \hfill % right alignment
+    \framebox{ % duration inside a box
+        \parbox{6em}{
+            \centering\textbf{#2}
+        }
+    } \par
+    \noindent\textit{#3} % short description
+    \vspace*{0.5em}
+    \noindent\hangindent=2em\hangafter=0 \small #4
+    \normalsize \par
+}
+
+% work
+\newcommand{\work}[4]{
+    \noindent\textbf{#1} % name of studies
+    \hfill % right alignment
+    \framebox{ % duration inside a box
+        \parbox{6em}{
+            \centering\textbf{#2}
+        }
+    } \par
+    \noindent\textit{#3} % short description
+    \vspace*{0.5em}
+    \noindent\hangindent=2em\hangafter=0 \small #4
+    \normalsize \par
+}
+
+\begin{document}
+
+    \name{Rustam Jafar}
+    \vspace{-17pt}
+    \begin{center}
+        \textit{Career Reload}
+    \end{center}
+
+    \sepspace
+    \info{Email:}{\texttt{rst.jafar@gmail.com}}
+    \info{Porfolio:}{\texttt{rustamjafar.com}}
+    \info{Phone:}{+7 (926) 462-56-06}
+    \info{Address:}{Moscow, Russia}
+
+    \section*{Work Experience}
+
+    \work{Physician}{2022-2023}{Outpatient Clinic, Moscow}{
+        \begin{itemize}
+            \item Creating entries for more than 80 patients/day using Excel
+            \item Groping and aggregating up to 800 patients monthly using Excel
+        \end{itemize}
+    }
+
+    \sepspace
+
+    \work{Male Nurse}{2018-2022}{Pirogov Medical Center, Moscow}{
+    \begin{itemize}
+            \item using MS Excel once at a time 
+                for grouping patients into speadsheet
+        \end{itemize}
+    }
+
+    \section*{Education}
+
+    \education{Sechenov University}{2015-2022}{Higher Education}{}
+
+    \sepspace
+
+    \education{Professional Lyceem #9}{2007-2015}{Secondary Education}{}
+    
+    \section*{Skills}
+
+    \skill{Programming Languages}{\textsc{Python}, \textsc{Bash}, \textsc{SQL} }
+
+    \skill{Programs}{\textit{MS Office (Excel)}}
+
+    \skill{Others}{\textit{Markdown}, \LaTeX, \textit{Git}}
+
+    \skill{Typing speed (English)}{\texttt{60} wpm}
+
+    \section*{Languages}
+
+    \lan{Russian}{Native} 
+    \lan{English}{Fluent}
+    \lan{Arabic}{Beginner}
+
+\end{document}

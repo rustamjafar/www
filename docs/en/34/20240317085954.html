@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <title>20240317085954</title>
+        <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+    <div class="basmala">
+      <p>in the name of god, the most beneficent, the most merciful</p>
+      <hr>
+    </div>
+
+    <div class="header">
+      <span>
+        <a href="/en/index.html">main</a>
+      </span>
+    </div>
+
+    <div class="content">
+        <p>20240317085954</p>
+        <h1 id="ssh-keep-alive-the-session">ssh: keep alive the
+        session</h1>
+        <ul>
+        <li><a href="#server-keep-alive">server keep alive</a></li>
+        <li><a href="#client-keep-alive">client keep alive</a></li>
+        </ul>
+        <h2 id="server-keep-alive">server keep alive</h2>
+        <p>the settings shown below has to be put into
+        <code>config</code> file on the <em>server</em> side</p>
+        <h2 id="client-keep-alive">client keep alive</h2>
+        <p>the settings shown below has to be put into
+        <code>.ssh/config</code> on the <em>client</em> side</p>
+        <ul>
+        <li><code>ServerAliveCountMax &lt;number&gt;</code> means:</li>
+        </ul>
+        <p>client will send <code>&lt;number&gt;</code> of packets
+        before disconnecting from the sever</p>
+        <ul>
+        <li><code>ServerAliveInterval</code><seconds>` means:</li>
+        </ul>
+        <p>client will send packets every <code>&lt;seconds&gt;</code>
+        to keep the connection alive</p>
+        <p>thanks to <a
+        href="https://www.golinuxcloud.com/keep-alive-ssh-sessions-in-linux/#Why_SSH_connections_close_automatically_after_some_time"
+        class="uri">https://www.golinuxcloud.com/keep-alive-ssh-sessions-in-linux/#Why_SSH_connections_close_automatically_after_some_time</a></p>
+    </div>
+
+    <div class="footer">
+      <hr>
+      <p>
+        <a href="mailto:rst.jafar@gmail.com">rst.jafar@gmail.com</a>
+      </p>
+    </div>
+</body>
+</html>

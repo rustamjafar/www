@@ -1,6 +1,6 @@
 20240211114916
 
-# multi-directional layout
+# css: multi-directional layout
 
 here're some notes for those of you who use multi-dir on their websites.
 

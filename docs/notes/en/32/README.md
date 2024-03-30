@@ -9,4 +9,13 @@
 * `rv64gc`, `rv64g`: 64-bit *risc-v*
 * `ppc64le`: 64-bit *powerpc*
 
+--------------------------         ------------------------------
+x86_64, x86, amd64                 64-bit *amd/intel*
+
+AArch64, arm64, ARMv8,             64-bit *amd/intel*
+ARMv9
+
+--------------------------         ------------------------------
+
+
 thanks to <https://itsfoss.com/arm-aarch64-x86_64/>

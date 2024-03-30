@@ -38,8 +38,37 @@ these drills are taken from *the palmer method of business writing*.
 
 ### capital b (drill 86, 87)
 
-* approx. 40 to the minute for disconnected
-* slightly higher rate for connected ones
+* approx. 40 
+
+capital c 70/min
+
+capital d 45/min
+
+capital e 45-50 min
+
+capital g 40 min, groups of 3 letters 18gr/min
+
+capital h 35/min
+
+capital i 45 /min
+
+capital j 60-70 /min
+
+capital k 35-45/min
+
+capital l 50 - 55 /min
+
+capital m 30 min
+
+capital n 40/min
+
+capital p 50 - 60 min
+
+capital r 45/min
+
+capital s 45/ min
+
+capital t 40 min
 
 - - -
 

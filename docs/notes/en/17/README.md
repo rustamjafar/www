@@ -16,7 +16,6 @@ file `/etc/nginx/nginx.conf`:
 ```
 http {
   include /etc/nginx/mime.types;
-  include /etc/nginx/conf.d/*.conf;
 }
 ```
 don't forget reloading w/:

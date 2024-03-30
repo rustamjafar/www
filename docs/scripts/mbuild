@@ -61,6 +61,7 @@ while IFS= read -r note; do
        --template "${TEMPLATE}" \
        --metadata title="${ntitle}" \
        -o "$OUTPUT_DIR/${ntitle}.html" \
+       --from markdown+multiline_tables \
        "${note}"
 
 done < <( find ${SEARCH_FOLDER} -iname '*.md' | sort -V )

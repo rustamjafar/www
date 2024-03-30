@@ -1,4 +1,6 @@
 
+[20240323140350: debian: search pckgs and binaries](/en/37/20240323140350.html)
+
 [20240318023805: typing multiple languages](/en/35/20240318023805.html)
 
 [20240317085954: ssh: keep alive the session](/en/34/20240317085954.html)

@@ -1,4 +1,8 @@
 
+[20240402075104: lightweight typesetting](/en/39/20240402075104.html)
+
+[20240402041806: books: project gutenberg](/en/38/20240402041806.html)
+
 [20240318023805: typing multiple languages](/en/35/20240318023805.html)
 
 [20240317085954: ssh: keep alive the session](/en/34/20240317085954.html)

@@ -1,4 +1,8 @@
 
+[20240407022236: calibre: managing book library](/en/41/20240407022236.html)
+
+[20240404024649: comptia: cs fundamentals](/en/40/20240404024649.html)
+
 [20240402075104: lightweight typesetting](/en/39/20240402075104.html)
 
 [20240402041806: books: project gutenberg](/en/38/20240402041806.html)

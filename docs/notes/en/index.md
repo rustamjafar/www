@@ -1,4 +1,8 @@
 
+[20240413201329: enterpreneurship: skills](/en/43/20240413201329.html)
+
+[20240409162413: bitcoin: exchange](/en/42/20240409162413.html)
+
 [20240407022236: calibre: managing book library](/en/41/20240407022236.html)
 
 [20240404024649: comptia: cs fundamentals](/en/40/20240404024649.html)

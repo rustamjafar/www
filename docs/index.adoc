@@ -1,12 +1,14 @@
-[https://www.rustamjafar.com/ar](./ar)
+https://www.rustamjafar.com/ar
 
-[https://www.rustamjafar.com/en](./en)
+https://www.rustamjafar.com/en
 
-[https://www.rustamjafar.com/ru](./ru)
+https://www.rustamjafar.com/ru
 
-- - -
+'''
 
-## ع
+:toc:
+
+== ع
 
 كيف أختار لغة عندما أكتب ملحوظة؟
 
@@ -14,7 +16,7 @@
 النفسه للغات الأخرى. أما أفكاري الشخصية فأستخدم العربي لأنه لغتي الفضلية من ثلاث
 أعلاه.
 
-## en
+== en
 
 how do i chose the language when writing notes?
 
@@ -23,7 +25,7 @@ english, the note is written in englsh. the same with other two languages. but
 when i want to express my own thoughts, most of the time i will use arabic,
 for out of three languages above this is the language i like the most.
 
-## ру
+== ру
 
 как я выбираю язык для записи заметок?
 
